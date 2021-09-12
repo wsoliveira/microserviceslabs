@@ -1,0 +1,6 @@
+venv
+.venv
+MongoDB
+*.log
+teste.txt
+*.jpg
