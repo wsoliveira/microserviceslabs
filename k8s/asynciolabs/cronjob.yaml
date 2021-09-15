@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: asynciovendedor-cronjob
+  namespace: microserviceslabs
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: asynciovendedor-cronjob
+            image: wsoliveiraudia/asynciolabs:latest
+            imagePullPolicy: IfNotPresent
+            command: ["python", "exemplo_vendedorDeBala.py"]
+          restartPolicy: OnFailure

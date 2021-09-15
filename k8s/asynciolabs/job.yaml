@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: asynciovendedor-job
+  namespace: microserviceslabs
+spec:
+  template:
+    spec:
+      containers:
+      - name: asynciovendedor
+        image: wsoliveiraudia/asynciolabs:latest
+        command: ["python", "exemplo_vendedorDeBala.py"]
+      restartPolicy: OnFailure
+  backoffLimit: 4
